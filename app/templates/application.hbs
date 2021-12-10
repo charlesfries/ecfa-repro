@@ -1,7 +1,22 @@
 {{page-title "EcfaRepro"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<ul>
+  <li>Created: {{this.model.createdAt}}</li>
+  <li>Title: {{this.model.title}}</li>
+  <li>Body: {{this.model.body}}</li>
+  <li>Comments: {{this.model.comments.length}}</li>
+</ul>
+
+<ol>
+  {{#each this.model.comments as |comment|}}
+    <li>
+      <i>
+        {{comment.createdAt}}
+      </i>
+      &middot;
+      {{comment.body}}
+    </li>
+  {{/each}}
+</ol>
 
 {{outlet}}
